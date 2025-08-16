@@ -6,7 +6,9 @@ package com.khoa.AirportServerAPI.aircraft;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.khoa.AirportServerAPI.airline.Airline;
 import com.khoa.AirportServerAPI.airport.Airport;
 
 import jakarta.persistence.Entity;
@@ -16,6 +18,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Aircraft {
@@ -25,8 +28,12 @@ public class Aircraft {
     private Long id;
 
     private String type;
-    private String airlineName;
     private int numberOfPassengers;
+
+    @ManyToOne
+    @JoinColumn(name = "airline_id") // Foreign key column in Aircraft table
+    @JsonIgnore // Avoid recursion when serializing JSON
+    private Airline airline;
 
     @ManyToMany
     @JoinTable(
@@ -54,12 +61,12 @@ public class Aircraft {
         this.type = type;
     }
 
-    public String getAirlineName() {
-        return airlineName;
+    public Airline getAirline() {
+        return airline;
     }
 
-    public void setAirlineName(String airlineName) {
-        this.airlineName = airlineName;
+    public void setAirline(Airline airline) {
+        this.airline = airline;
     }
 
     public int getNumberOfPassengers() {

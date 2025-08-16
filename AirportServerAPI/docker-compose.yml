@@ -1,0 +1,11 @@
+version: '3'
+services:
+  myapp:
+    build: .
+    container_name: airportserverapi-myapp
+    ports:
+      - "8080:8080"
+    environment:
+      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/airport_api_db?serverTimezone=UTC&useSSL=false
+      - spring.datasource.username=root
+      - spring.datasource.password=Loan1973.

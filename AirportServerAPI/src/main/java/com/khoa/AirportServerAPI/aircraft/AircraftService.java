@@ -50,7 +50,7 @@ public class AircraftService {
         if (optionalAircraft.isPresent()) {
             Aircraft aircraft = optionalAircraft.get();
             aircraft.setType(updatedAircraft.getType());
-            aircraft.setAirlineName(updatedAircraft.getAirlineName());
+            aircraft.setAirline(updatedAircraft.getAirline());
             aircraft.setNumberOfPassengers(updatedAircraft.getNumberOfPassengers());
             return aircraftRepository.save(aircraft);
         } else {

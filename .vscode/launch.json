@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestDB",
+            "request": "launch",
+            "mainClass": "com.khoa.AirportServerAPI.TestDB",
+            "projectName": "AirportServerAPI"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-AirportServerApiApplication<AirportServerAPI>",
             "request": "launch",
             "cwd": "${workspaceFolder}",

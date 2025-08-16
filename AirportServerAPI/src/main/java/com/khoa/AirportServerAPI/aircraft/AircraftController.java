@@ -23,7 +23,7 @@ import com.khoa.AirportServerAPI.airport.AirportRepository;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/aircraft")
+@RequestMapping("/api/aircraft")
 public class AircraftController {
 
     private final AircraftService aircraftService;

@@ -1,3 +1,6 @@
+//Name: Khoa Pham
+//Project: Final Sprint (Airport-Server-API)
+//Date: 08/15/2025
 package com.khoa.AirportServerAPI.flight;
 
 import java.time.LocalDateTime;
@@ -26,44 +29,37 @@ public class FlightController {
         this.flightService = flightService;
     }
 
-    // Get all flights
     @GetMapping
     public List<Flight> getAllFlights() {
         return flightService.getAllFlights();
     }
 
-    // Get a flight by ID
     @GetMapping("/{id}")
     public Optional<Flight> getFlightById(@PathVariable Long id) {
         return flightService.getFlightById(id);
     }
 
-    // Get a flight by flight number
     @GetMapping("/number/{flightNumber}")
     public Optional<Flight> getFlightByNumber(@PathVariable String flightNumber) {
         return flightService.getFlightByNumber(flightNumber);
     }
 
-    // Add a new flight
     @PostMapping
     public Flight addFlight(@RequestBody Flight flight) {
         return flightService.addFlight(flight);
     }
 
-    // Update a flight
     @PutMapping("/{id}")
     public Flight updateFlight(@PathVariable Long id, @RequestBody Flight flight) {
         flight.setId(id);
         return flightService.updateFlight(flight);
     }
 
-    // Delete a flight
     @DeleteMapping("/{id}")
     public void deleteFlight(@PathVariable Long id) {
         flightService.deleteFlight(id);
     }
 
-    // Example: Get flights between two dates (format: 2025-08-15T10:00)
     @GetMapping("/between")
     public List<Flight> getFlightsBetweenDates(
             @RequestParam("start") String start,

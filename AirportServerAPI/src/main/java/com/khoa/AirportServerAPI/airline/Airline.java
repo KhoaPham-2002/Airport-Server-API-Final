@@ -1,3 +1,6 @@
+//Name: Khoa Pham
+//Project: Final Sprint (Airport-Server-API)
+//Date: 08/15/2025
 package com.khoa.AirportServerAPI.airline;
 
 import java.util.HashSet;
@@ -29,7 +32,7 @@ public class Airline {
     private String name;
 
     @Column(nullable = false, unique = true)
-    private String code; // Example: "AC" for Air Canada
+    private String code; 
 
     @OneToMany(mappedBy = "airline", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore

@@ -1,3 +1,6 @@
+//Name: Khoa Pham
+//Project: Final Sprint (Airport-Server-API)
+//Date: 08/15/2025
 package com.khoa.AirportServerAPI.airline;
 
 import java.util.List;
@@ -24,13 +27,11 @@ public class AirlineController {
         this.airlineService = airlineService;
     }
 
-    // Get all airlines
     @GetMapping
     public List<Airline> getAllAirlines() {
         return airlineService.getAllAirlines();
     }
 
-    // Get airline by ID
     @GetMapping("/{id}")
     public ResponseEntity<Airline> getAirlineById(@PathVariable Long id) {
         return airlineService.getAirlineById(id)
@@ -38,7 +39,6 @@ public class AirlineController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Get airline by code
     @GetMapping("/code/{code}")
     public ResponseEntity<Airline> getAirlineByCode(@PathVariable String code) {
         return airlineService.getAirlineByCode(code)
@@ -46,13 +46,11 @@ public class AirlineController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Create new airline
     @PostMapping
     public Airline createAirline(@RequestBody Airline airline) {
         return airlineService.createAirline(airline);
     }
 
-    // Update airline
     @PutMapping("/{id}")
     public ResponseEntity<Airline> updateAirline(@PathVariable Long id, @RequestBody Airline updatedAirline) {
         try {
@@ -63,7 +61,6 @@ public class AirlineController {
         }
     }
 
-    // Delete airline
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteAirline(@PathVariable Long id) {
         airlineService.deleteAirline(id);

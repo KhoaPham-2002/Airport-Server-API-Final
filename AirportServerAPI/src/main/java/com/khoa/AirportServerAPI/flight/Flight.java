@@ -1,3 +1,6 @@
+//Name: Khoa Pham
+//Project: Final Sprint (Airport-Server-API)
+//Date: 08/15/2025
 package com.khoa.AirportServerAPI.flight;
 
 import java.time.LocalDateTime;
@@ -57,8 +60,7 @@ public class Flight {
     @Column(nullable = false)
     private LocalDateTime scheduledArrival;
 
-    private String status; // "SCHEDULED", "BOARDING", "DEPARTED", "ARRIVED", "DELAYED", "CANCELLED"
-
+    private String status; 
     public Flight() {}
 
     public Flight(String flightNumber, Airline airline, Aircraft aircraft,
